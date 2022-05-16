@@ -19,7 +19,7 @@ while True:
         answer = int(num1/num2)
     else:
         answer = int(num1*num2)
-    problem = r.randint(answer, answer+20)
+    problem = r.randint(answer, answer+10)
 
     if problem == answer:
         valid = "1"
@@ -27,7 +27,7 @@ while True:
         valid = "0"
 
     print(f"{num1} {operator} {num2} = {problem}")
-    user_inp = input("1 for True, 0 for False: ")
+    user_inp = input("1 for True, 0 for False: \n")
     if user_inp == valid:
         score += 1
     else:

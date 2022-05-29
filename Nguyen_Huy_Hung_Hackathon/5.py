@@ -1,6 +1,6 @@
 import random as r
 print("== WHAT THE MATH CONSOLE ==\nGive correct answers to get scores.")
-print("Note: The results of division will be rounded\nFor example: 9/4 = 2.25 => 2\n")
+print("Note: The results of divisions will be rounded\nFor example: 9/4 = 2.25 => 2\n")
 score = 0
 
 while True:

@@ -1,5 +1,6 @@
 import random as r
-print("== WHAT THE MATH CONSOLE ==\nGive correct answers to get scores.")
+import time as t
+print("\n== WHAT THE MATH CONSOLE ==\nGive correct answers to get scores.")
 print("Note: The results of divisions will be rounded\nFor example: 9/4 = 2.25 => 2\n")
 score = 0
 
@@ -19,7 +20,7 @@ while True:
         answer = int(num1/num2)
     else:
         answer = int(num1*num2)
-    problem = r.randint(answer, answer+10)
+    problem = r.randint(answer, answer+5)
 
     if problem == answer:
         valid = "1"
@@ -27,7 +28,7 @@ while True:
         valid = "0"
 
     print(f"{num1} {operator} {num2} = {problem}")
-    user_inp = input("1 for True, 0 for False: \n")
+    user_inp = input("1 for True, 0 for False\t: ")
     if user_inp == valid:
         score += 1
     else:

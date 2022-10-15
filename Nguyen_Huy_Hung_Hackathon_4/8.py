@@ -26,31 +26,43 @@ character = {
     'Strength': 8,
     'Defense': 10,
     'HP': 100,
-    'Backpack': ['Shield', 'Bread Loaf'],
+    'Backpack': ['Shield', 'Bread Loaf', 'Flintstone'],
     'Gold': 100,
     'Level': 2
 }
+def backpackItems():
+    print()
+    print("Items to level up:")
+    for i in range(len(character['Backpack'])):
+        print("- ", end='')
+        print(character['Backpack'][i])
 
-for i in range(len(skills)):
-    print(f'''Skill {i+1}: {skills[i]['Name']}''')
-inp = int(input('Choose skill by number: \n'))
-print(f'''You chose {skills[inp-1]["Name"]}''')
-
-if character["Level"] >= skills[inp-1]["Minimum Level"]:
-    print(f"""Damage: {skills[inp-1]["Damage"]}""")
-else:
-    print(f"""Cannot deploy. Required level {skills[inp-1]["Minimum Level"]}""")
+def levelUp(inp: str):
+    if inp == character['Backpack'][1]:
+        character["Level"] += 1
+        print('\nLeveled Up!')
+    else:
+        print('Cannot level up with this item.')
 
 rate = r.random()
-for i in range(len(skills)):
-    print(f'''Skill {i+1}: {skills[i]['Name']}''')
-inp = int(input('Choose skill by number: '))
-print(f'''You chose {skills[inp-1]["Name"]}''')
+def gameOn():
+    print()
+    for i in range(len(skills)):
+        print(f'''Skill {i+1}: {skills[i]['Name']}''')
+    inp = int(input('Choose skill by number: '))
+    print(f'''You chose {skills[inp-1]["Name"]}''')
 
-if character["Level"] >= skills[inp-1]["Minimum Level"]:
-    if rate <= skills[inp-1]["Hit Rate"]:
-        print(f"""Damage: {skills[inp-1]["Damage"]}""")
+    if character["Level"] >= skills[inp-1]["Minimum Level"]:
+        if rate <= skills[inp-1]["Hit Rate"]:
+            print(f"""Damage: {skills[inp-1]["Damage"]}""")
+        else:
+            print("missed lol n00b")
     else:
-        print("Missed")
-else:
-    print(f"""Cannot deploy. Required level {skills[inp-1]["Minimum Level"]}""")
+        print(f"""Cannot deploy. Required level {skills[inp-1]["Minimum Level"]}""")
+        print()
+        print(f"""Level of main character: {character["Level"]}""")
+        backpackItems()
+        levelUp(input("Select item: "))
+        gameOn()
+
+gameOn()
